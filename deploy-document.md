@@ -36,7 +36,3 @@ $ sudo systemctl start postgresql
 $ sudo yum install nginx
 ```
 
-## Install and config the MongoDB
-```
-$ sudo yum install mongodb-org
-```
