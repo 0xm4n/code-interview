@@ -8,3 +8,11 @@
 
 2. 混合执行测试(Concolic testing)
 具体符号执行：是一个同时使用了符号执行（将程序变量当做符号化的变量）和具体执行（涉及到具体的输入）的混合式的软件验证技术。
+
+PathCrawler[4][5] first proposed to perform symbolic execution along a concrete execution path, but unlike concolic testing PathCrawler does not simplify complex symbolic constraints using concrete values.
+
+Automated theorem proving
+
+Satisfiability modulo theories
+
+Boolean satisfiability problem
