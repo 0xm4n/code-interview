@@ -1,0 +1,44 @@
+方法一：JSON.parse(JSON.stringify());
+
+方法二：
+module.exports = function clone(target) {
+    if (typeof target === "object") {
+        let cloneTarget = {};
+        for (const key in target) {
+            cloneTarget[key] = clone(target[key]);
+        }
+        return cloneTarget;
+    } else {
+        return target;
+    }
+}
+
+方法三（考虑数组）：
+module.exports = function clone(target) {
+    if (typeof target === "object") {
+        let cloneTarget = Array.isArray(target) ? [] : {};
+        for (const key in target) {
+            cloneTarget[key] = clone(target[key]);
+        }
+        return cloneTarget;
+    } else {
+        return target;
+    }
+}
+
+方法四（考虑循环引用）：
+module.exports = function clone(target, map = new Map()) {
+    if (typeof target === "object") {
+        let cloneTarget = Array.isArray(target) ? [] : {};
+        if (map.get(target)) {
+            return map.get(target);
+        }
+        map.set(target, cloneTarget);
+        for(const key in target) {
+            cloneTarget[key] = clone(target[key], map);
+        }
+        return cloneTarget;
+    } else {
+        return target;
+    }
+}
