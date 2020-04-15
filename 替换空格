@@ -44,3 +44,32 @@ public:
         }
 	}
 };
+
+``` JavaScirpt
+function replaceSpace(str)
+{
+    var arr = str.split("");
+    
+    var spaceCount = 0;
+    for(let i = 0; i < str.length; i++){
+        if (str[i] === " ") {
+            spaceCount++;
+        }
+    }
+    
+    var originLength = str.length;
+    var newLength = str.length + 2 * spaceCount;
+    var result = new Array(newLength);
+    
+    for(let j = originLength - 1; j >= 0; j--){
+        if (arr[j] === " "){
+            result[newLength--] = "0";
+            result[newLength--] = "2";
+            result[newLength--] = "%";
+        } else {
+            result[newLength--] = arr[j];
+        }
+    }
+    return result.join("");
+}
+```
