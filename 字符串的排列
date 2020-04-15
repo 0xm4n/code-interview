@@ -1,0 +1,31 @@
+字符串的排列:
+题目描述
+输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+输入描述:
+输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。
+
+思路参考：https://blog.csdn.net/wzy_1988/article/details/8939140
+
+function Permutation(str)
+{
+    let res = [];
+    if (str.length <= 0) return res;
+    var arr = str.split('');
+    res = permutate(arr, 0 , res);
+    res = [...new Set(res)];
+    res.sort();
+    return res;
+}
+
+function permutate(arr, start , res) {
+    if (arr.length === start) {
+        let str = arr.join("");
+        return res.push(str);
+    }
+    for (let i = start; i < arr.length; i++) {
+        [arr[start], arr[i]] = [arr[i], arr[start]];
+        permutate(arr, start + 1, res);
+        [arr[start], arr[i]] = [arr[i], arr[start]];
+    }
+    return res;
+}
