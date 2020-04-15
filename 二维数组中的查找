@@ -31,3 +31,23 @@ public:
         return found;
     }
 };
+
+
+function Find(target, array)
+{
+    var row = array.length - 1,
+        col = array[0].length - 1,
+        x = 0,
+        y = col;
+    
+    while ( x <= row && y >= 0) {
+        if(target < array[x][y] ){
+            y--;
+        } else if (target > array[x][y]){
+            x++;
+        } else{
+            return true;
+        }
+    }
+    return false;
+}
