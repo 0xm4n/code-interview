@@ -1,0 +1,16 @@
+var outStack = [],
+    inStack = [];
+
+function push(node)
+{
+    inStack.push(node);
+}
+function pop()
+{
+    if (outStack.length === 0){
+        while(inStack.length) {
+            outStack.push(inStack.pop());
+        }
+    }
+    return outStack.pop()
+}

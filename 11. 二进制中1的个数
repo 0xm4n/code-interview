@@ -1,0 +1,13 @@
+思路参考: https://xin-tan.com/passages/2019-06-23-bit-number-of-one/
+function NumberOf1(n)
+{
+    let count = 0,
+        flag = 1;
+    while(flag) {
+        if (flag & n) {
+            count++;
+        }
+        flag = flag << 1;
+    }
+    return count
+}

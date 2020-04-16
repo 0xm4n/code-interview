@@ -38,3 +38,14 @@ public:
         return result;
     }
 };
+
+// JavaScript
+function printListFromTailToHead(head)
+{
+    var res = [];
+    while (head){
+        res.unshift(head.val);
+        head = head.next;
+    }
+    return res;
+}
