@@ -1,4 +1,5 @@
 ```cpp
+// Hash Table
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -15,6 +16,7 @@ public:
 ```
 
 ```cpp
+// two pointers
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
