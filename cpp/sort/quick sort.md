@@ -7,9 +7,9 @@ public:
         return nums;
     }
     
-    void quickSort (vector<int>& nums, int lo, int hi) {
-        if (lo >= hi) return;
-        int pivot = nums[lo], i = lo + 1, j = hi;
+    void quickSort(vector<int>& nums, int left, int right) {
+        if (left >= right) return;
+        int pivot = nums[left], i = left + 1, j = right;
         while (i <= j) {
             if (nums[i] > pivot && nums[j] < pivot) {
                 std::swap(nums[i++], nums[j--]);
@@ -17,9 +17,9 @@ public:
             if (nums[i] <= pivot) ++i;
             if (nums[j] >= pivot) --j;
         }
-        std::swap(nums[lo], nums[j]);
-        quickSort(nums, lo, j - 1);
-        quickSort(nums, j + 1, hi);
+        std::swap(nums[left], nums[j]);
+        quickSort(nums, left, j - 1);
+        quickSort(nums, j + 1, right);
     }
 };
 ```
